@@ -9,9 +9,9 @@ RSpec.describe "new shelter" do
 
         click_link "New Shelter"
 
-        fill_in "Name", with: "Denver Cat Company"
-
         expect(current_path).to ep ("artists/new")
+
+        fill_in "Name", with: "Denver Cat Company"
 
         click_on "Create Shelter"
 
