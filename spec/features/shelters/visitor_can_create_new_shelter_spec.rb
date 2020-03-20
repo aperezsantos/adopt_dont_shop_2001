@@ -12,7 +12,7 @@ RSpec.describe "new shelter" do
         expect(current_path).to eq("/shelters/new")
 
         fill_in "Name", with: "Denver Cat Company"
-        fill_in "Adress", with: "3929 Tennyson St."
+        fill_in "Address", with: "3929 Tennyson St."
         fill_in "City", with: "Denver"
         fill_in "State", with: "CO"
         fill_in "Zip", with: "80212"
