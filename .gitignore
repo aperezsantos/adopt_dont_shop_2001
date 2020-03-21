@@ -8,6 +8,9 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+coverage
+coverage/*
+DS_store
 /log/*
 /tmp/*
 !/log/.keep
