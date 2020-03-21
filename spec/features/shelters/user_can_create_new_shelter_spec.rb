@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "new shelter" do
-  describe "as a visitor" do
+RSpec.describe "new shelter creation" do
+  describe "as a user" do
     describe "when i visit the new shelter form by clicking a link on the index" do
       it "i can create a new shelter" do
 
@@ -11,11 +11,11 @@ RSpec.describe "new shelter" do
 
         expect(current_path).to eq("/shelters/new")
 
-        fill_in "Name", with: "Denver Cat Company"
-        fill_in "Address", with: "3929 Tennyson St."
-        fill_in "City", with: "Denver"
-        fill_in "State", with: "CO"
-        fill_in "Zip", with: "80212"
+        fill_in :name, with: "Denver Cat Company"
+        fill_in :address, with: "3929 Tennyson St."
+        fill_in :city, with: "Denver"
+        fill_in :state, with: "CO"
+        fill_in :zip, with: "80212"
 
         click_on "Create Shelter"
 
