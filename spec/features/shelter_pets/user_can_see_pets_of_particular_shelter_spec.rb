@@ -12,7 +12,7 @@ RSpec.describe "shelter show page", type: :feature do
       @pet_1 = @shelter_1.pets.create(image: "http://www.petharbor.com/get_image.asp?RES=Detail&ID=A0823795&LOCATION=DDFL",
                                     name:  "Clementine",
                                     approximate_age: "3 y/o",
-                                    sex: "Male",
+                                    sex: "Female",
                                     adoption_status: "Ready for adoption")
 
       @pet_2 = @shelter_1.pets.create(image: "http://petharbor.com/get_image.asp?RES=Detail&ID=A0824315&LOCATION=DDFL",
@@ -21,19 +21,18 @@ RSpec.describe "shelter show page", type: :feature do
                                     sex: "Male",
                                     adoption_status: "Pending")
 
-      visit "/shelters/#{@shelter.id}/pets"
+      visit "/shelters/#{@shelter_1.id}/pets"
 
       expect(page).to have_css("img[src*='#{@pet_1.image}']")
       expect(page).to have_content(@pet_1.name)
       expect(page).to have_content(@pet_1.approximate_age)
       expect(page).to have_content(@pet_1.sex)
-a      expect(page).to have_content(@pet_1.adoption_status)
 
-      expect(page).to have_css("img[src*='#{@pet_2.image}']")
-      expect(page).to have_content(@pet_2.name)
-      expect(page).to have_content(@pet_2.approximate_age)
-      expect(page).to have_content(@pet_2.sex)
-      expect(page).to have_content(@pet_2.adoption_status)
+      expect(page).to_not have_css("img[src*='#{@pet_2.image}']")
+      expect(page).to_not have_content(@pet_2.name)
+      expect(page).to_not have_content(@pet_2.approximate_age)
+      expect(page).to_not have_content(@pet_2.sex)
+      expect(page).to_not have_content(@pet_2.adoption_status)
     end
   end
 end
