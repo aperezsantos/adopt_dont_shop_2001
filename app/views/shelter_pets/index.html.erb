@@ -1,0 +1,11 @@
+<h1>Our Pets</h1>
+<br/>
+  <% @pets.each do |pet| %>
+  <% if pet.adoption_status == "Ready for adoption" %>
+    <img src= <%= pet.image %>>
+    <br/>
+    <h3>Name: <%= pet.name %></h3>
+    <p>Age: <%= pet.approximate_age %></p>
+    <p>Sex: <%= pet.sex %></p>
+    <% end %>
+  <% end %>
