@@ -14,10 +14,10 @@ RSpec.describe "pets show page", type: :feature do
                                     name:  "Clementine",
                                     description: "Tabby",
                                     approximate_age: "3 y/o",
-                                    sex: "Male",
+                                    sex: "Female",
                                     shelter_location: "Dumb Friends League",
                                     adoption_status: "Ready for adoption")
-#can test this pet is not there
+                                    
       pet_2 = shelter_1.pets.create(image: "http://petharbor.com/get_image.asp?RES=Detail&ID=A0824315&LOCATION=DDFL",
                                     name:  "Pumba",
                                     description: "Pitbull",
@@ -35,12 +35,12 @@ RSpec.describe "pets show page", type: :feature do
       expect(page).to have_content(pet_1.sex)
       expect(page).to have_content(pet_1.adoption_status)
 
-      expect(page).to_no have_css("img[src*= '#{pet_2.image}']")
-      expect(page).to_no have_content(pet_2.name)
-      expect(page).to have_content(pet_2.description)
-      expect(page).to_no have_content(pet_2.approximate_age)
-      expect(page).to have_content(pet_2.sex)
-      expect(page).to_no have_content(pet_2.adoption_status)
+      expect(page).to_not have_css("img[src*= '#{pet_2.image}']")
+      expect(page).to_not have_content(pet_2.name)
+      expect(page).to_not have_content(pet_2.description)
+      expect(page).to_not have_content(pet_2.approximate_age)
+      expect(page).to_not have_content(pet_2.sex)
+      expect(page).to_not have_content(pet_2.adoption_status)
     end
   end
 end
